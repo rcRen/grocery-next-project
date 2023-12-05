@@ -9,6 +9,7 @@ on:
 env:
   NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: ${{ secrets.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY }}
   STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY}}
+  MONGO_URL: ${{ secrets.MONGO_URL}}
 
 jobs:
   Deploy-Production:
