@@ -26,7 +26,7 @@ const IndexPage = () => {
   const API_PRODUCTS = '/api/product';
   useEffect(() => {
     axios
-      .get(API_PRODUCTS, {
+      .get(process.env.VERCEL_PUBLIC_URL + API_PRODUCTS, {
         params: {
           page,
           itemsPerPage,
