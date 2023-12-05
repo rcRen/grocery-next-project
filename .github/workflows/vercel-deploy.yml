@@ -1,7 +1,7 @@
-name: Vercel Production Deployment
+name: Grocery Basket
 env:
-  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: ${{ secrets.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY }}
+  STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY}}
 on:
   push:
     branches:
