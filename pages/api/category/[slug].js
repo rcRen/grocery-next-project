@@ -1,5 +1,5 @@
-import Product from '../../../model/product';
-import Category from '../../../model/category';
+import Product from '../../../model/Product';
+import Category from '../../../model/Category';
 import { connectDB } from '../../../util/mongo';
 
 export default async (req, res) => {

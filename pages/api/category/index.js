@@ -1,5 +1,4 @@
-const c_model = require('../../../model/category');
-import Category from '../../../model/category';
+import Category from '../../../model/Category';
 import { connectDB } from '../../../util/mongo';
 
 export default async (req, res) => {

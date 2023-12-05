@@ -1,5 +1,5 @@
 import { connectDB } from '../../../util/mongo';
-import Product from '../../../model/product';
+import Product from '../../../model/Product';
 
 export default async (req, res) => {
   if (req.method === 'GET') {

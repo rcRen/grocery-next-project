@@ -1,4 +1,4 @@
-import Product from '../../../model/product';
+import Product from '../../../model/Product';
 import { connectDB } from '../../../util/mongo';
 
 export default async (req, res) => {
