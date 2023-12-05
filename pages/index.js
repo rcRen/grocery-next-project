@@ -23,10 +23,11 @@ const IndexPage = () => {
     page < totalPage && setPage(page + 1);
   };
 
-  const API_PRODUCTS = '/api/product';
+  const API_PRODUCTS = `${process.env.VERCEL_PUBLIC_URL}/api/product`;
+
   useEffect(() => {
     axios
-      .get(process.env.VERCEL_PUBLIC_URL + API_PRODUCTS, {
+      .get(API_PRODUCTS, {
         params: {
           page,
           itemsPerPage,
