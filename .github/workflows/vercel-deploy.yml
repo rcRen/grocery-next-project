@@ -1,11 +1,15 @@
 name: Grocery Basket
-env:
-  NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: ${{ secrets.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY }}
-  STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY}}
+
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
+
+env:
+  NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: ${{ secrets.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY }}
+  STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY}}
+
 jobs:
   Deploy-Production:
     runs-on: ubuntu-latest
