@@ -23,7 +23,7 @@ const IndexPage = () => {
     page < totalPage && setPage(page + 1);
   };
 
-  const API_PRODUCTS = process.env.VERCEL_PUBLIC_URL + '/api/product';
+  const API_PRODUCTS = '/api/product';
 
   useEffect(() => {
     axios
