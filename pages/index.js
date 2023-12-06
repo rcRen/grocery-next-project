@@ -8,7 +8,7 @@ const IndexPage = () => {
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
-  const itemsPerPage = 20;
+  const itemsPerPage = process.env.ITEMS_PER_PAGE;
   const [loaded, setLoaded] = useState(false);
   const scrollToTop = () => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
