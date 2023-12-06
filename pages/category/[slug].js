@@ -8,7 +8,6 @@ export default (props) => {
   const { slug } = useRouter().query;
 
   const API_CATEGORY = `/api/category/${slug}`;
-  const itemsPerPage = process.env.ITEMS_PER_PAGE;
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
@@ -27,7 +26,6 @@ export default (props) => {
       axios
         .post(API_CATEGORY, {
           page,
-          itemsPerPage,
         })
         .then(function ({ data }) {
           setLoaded(true);

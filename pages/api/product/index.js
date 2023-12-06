@@ -3,7 +3,8 @@ import Product from '../../../model/Product';
 
 export default async (req, res) => {
   if (req.method === 'GET') {
-    const { page, itemsPerPage } = req.query;
+    const { page } = req.query;
+    const itemsPerPage = process.env.ITEMS_PER_PAGE;
     try {
       await connectDB();
       const displayProducts = await Product.find()

@@ -7,7 +7,8 @@ export default async (req, res) => {
     try {
       await connectDB();
       const { slug } = req.query;
-      const { page, itemsPerPage } = req.body;
+      const { page } = req.body;
+      const itemsPerPage = process.env.ITEMS_PER_PAGE;
       const category = await Category.where({ slug }).findOne();
 
       if (category) {
