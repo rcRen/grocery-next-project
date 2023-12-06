@@ -122,7 +122,7 @@ export default ({ product }) => {
 export async function getServerSideProps({ req, res, query }) {
   const API_PRODUCTS = '/api/product/';
   const { id } = query;
-  const response = await axios.get(`http://localhost:3000/${API_PRODUCTS}/${id}`);
+  const response = await axios.get(`${API_PRODUCTS}/${id}`);
   const product = response.data.product;
 
   return {
