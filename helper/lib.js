@@ -54,7 +54,6 @@ export const getQuantityOfItemInCart = (item) => {
 };
 
 export const addToCart = (item, quantity) => {
-  console.info('cart item:', item);
   const [index, cart, quantityInCart] = getQuantityOfItemInCart(item);
 
   if (quantityInCart) {

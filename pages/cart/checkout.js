@@ -1,8 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
-
-import currency from 'currency.js';
 import CheckoutForm from '../../components/CheckoutForm';
 import { useCart } from '../../contexts/cart';
 
@@ -35,7 +33,6 @@ export default function App() {
   };
 
   const { products, subTotal, tax, total } = useCart();
-  console.info('total',total);
 
   return (
     <div className="bg-white">

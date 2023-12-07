@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useCart } from '../../contexts/cart';
-import currency from 'currency.js';
 
 const summary = () => {
   const { products, subTotal, tax, total } = useCart();
 
   return (
     <div className="bg-white">
-      <div className="mx-auto grid max-w-2xl grid-cols-1 items-top gap-y-16 gap-x-32 py-4 px-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:grid-cols-1 lg:px-8">
+      <div className="mx-auto grid max-w-2xl grid-cols-1 justify-items-center gap-y-16 gap-x-32 py-4 px-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:grid-cols-1 lg:px-8">
         <div className="mb-8  m-6 -my-6">
           <p className="text-base font-medium tracking-tight text-green-700  sm:text-base">
             Successful

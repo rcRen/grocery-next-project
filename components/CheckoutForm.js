@@ -6,10 +6,10 @@ import storage from '../helper/storage';
 export default function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
-  const {ClearCart} = useCart();
 
   const [message, setMessage] = React.useState(null);
   const [isLoading, setIsLoading] = React.useState(false);
+  const { ClearCart } = useCart();
 
   React.useEffect(() => {
     if (!stripe) {
@@ -73,8 +73,6 @@ export default function CheckoutForm() {
     }
 
     setIsLoading(false);
-
-    localStorage.removeItem('cart');
   };
 
   const paymentElementOptions = {

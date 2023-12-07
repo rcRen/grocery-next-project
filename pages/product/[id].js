@@ -3,6 +3,7 @@ import Head from 'next/head';
 import axios from 'axios';
 import { useCart } from '../../contexts/cart';
 import BreadCrumbs from '../../components/BreadCrumbs';
+import { useRouter } from 'next/router';
 
 export default ({ product }) => {
   const [quantity, setQuantity] = useState(1);
@@ -26,9 +27,7 @@ export default ({ product }) => {
       </Head>
       <div className="grid grid-cols-1 gap-12 px-4 max-w-2xl mx-auto sm:px-6 sm:py-8 lg:max-w-7xl lg:grid-cols-1 lg:px-8">
         <div>
-          <div className="h-1/12  bg-primary p-3 text-white">
-            {/* <BreadCrumbs /> */}
-          </div>
+          <div className="h-1/12  bg-primary p-3 text-white">{/* <BreadCrumbs /> */}</div>
           <div className="h-1/12  bg-primary p-3 text-white">
             <a>back</a>
           </div>
@@ -120,9 +119,9 @@ export default ({ product }) => {
 };
 
 export async function getServerSideProps({ req, res, query }) {
-  const API_PRODUCTS = '/api/product/';
   const { id } = query;
-  const response = await axios.get(`${API_PRODUCTS}/${id}`);
+  const API_PRODUCTS = `http://${req.headers.host}/api/product/${id}`;
+  const response = await axios.get(API_PRODUCTS);
   const product = response.data.product;
 
   return {

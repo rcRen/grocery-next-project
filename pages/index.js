@@ -12,8 +12,6 @@ const IndexPage = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   };
-
-  console.info('111', process.env.ITEMS_PER_PAGE);
   const previousPageHandler = () => {
     scrollToTop();
     page > 1 && setPage(page - 1);
