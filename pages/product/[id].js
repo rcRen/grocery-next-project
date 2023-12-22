@@ -16,6 +16,7 @@ export default ({ product }) => {
       setQuantity(inputValue);
     }
   };
+  let a = 2 / 0;
 
   const addToCartHandler = (product, quantity) => {
     AddToCart(product, quantity);
