@@ -1,6 +1,5 @@
 import dynamic from 'next/dynamic';
 import '../styles/globals.css';
-
 import Layout from '../components/layout';
 import { CartProvider } from '../contexts/cart';
 
