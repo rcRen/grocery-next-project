@@ -85,7 +85,7 @@ export default function CheckoutForm() {
       <button
         type="submit"
         id="submit"
-        className="w-full flex justify-center text-white bg-green-700 hover:bg-green-800  font-lg rounded-md text-xl my-5 px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-green-600 dark:hover:bg-green-700"
+        className="w-full flex justify-center text-white bg-lime-500 hover:bg-green-800  font-lg text-xl my-5 px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-green-600 dark:hover:bg-green-700"
       >
         <span id="button-text">
           {isLoading ? (

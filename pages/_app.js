@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 import '../styles/globals.css';
-import Layout from '../components/layout';
+import Layout from '../layout';
 import { CartProvider } from '../contexts/cart';
 
 function Root({ Component, pageProps, query }) {

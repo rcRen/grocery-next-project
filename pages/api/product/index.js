@@ -3,10 +3,11 @@ import Product from '../../../model/Product';
 
 export default async (req, res) => {
   if (req.method === 'GET') {
-    const { page } = req.query;
-    const itemsPerPage = process.env.ITEMS_PER_PAGE;
+    const { page } = req.query || 1;
+    const itemsPerPage = req.query.offset || process.env.ITEMS_PER_PAGE;
     try {
       await connectDB();
+
       const displayProducts = await Product.find()
         .skip(Math.max(page - 1, 0) * itemsPerPage)
         .limit(itemsPerPage);

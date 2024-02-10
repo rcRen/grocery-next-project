@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
+import Banner from '../../containers/banner';
 
 export default (props) => {
   const [email, setEmail] = useState();
@@ -56,11 +57,12 @@ export default (props) => {
 
   return (
     <>
-      <div className="bg-white">
+      <Banner title=" Account" />
+      <div className="bg-white my-24">
         <div className="grid grid-cols-1 justify-items-center my-12">
-          <h2 className="text-4xl tracking-tight">Sign up</h2>
+          <h2 className="text-4xl tracking-tight">Register Your Account</h2>
         </div>
-        <div className="grid w-1/2 min-w-5xl mx-auto my-3 border-2 border-gray-300 rounded-lg gap-6 p-6 sm:w-full md:w-1/2 lg:w-1/3 ">
+        <div className="grid w-1/2 min-w-5xl mx-auto my-3 gap-6 p-6 sm:w-full md:w-1/2 lg:w-1/3 ">
           {message &&
             (success ? (
               <div className="h-12 p-3 bg-success-bg inline-flex items-center gap-3 ">
@@ -153,7 +155,7 @@ export default (props) => {
           </div>
           <div>
             <button
-              className="bg-primary text-white rounded-lg h-12 w-full hover:bg-black"
+              className="bg-lime-500 text-white h-12 w-full hover:bg-black"
               onClick={handleSubmit}
             >
               Sign up
