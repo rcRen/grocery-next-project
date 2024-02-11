@@ -1,7 +1,5 @@
 import React from 'react';
 import { PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js';
-import { useCart } from '../contexts/cart';
-import storage from '../helper/storage';
 
 export default function CheckoutForm() {
   const stripe = useStripe();
@@ -9,7 +7,6 @@ export default function CheckoutForm() {
 
   const [message, setMessage] = React.useState(null);
   const [isLoading, setIsLoading] = React.useState(false);
-  const { ClearCart } = useCart();
 
   React.useEffect(() => {
     if (!stripe) {
