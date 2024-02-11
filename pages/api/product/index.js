@@ -1,6 +1,5 @@
 import { connectDB } from '../../../util/mongo';
 import Product from '../../../model/Product';
-// import productData_2 from '../../../model/productData_2';
 
 export default async (req, res) => {
   if (req.method === 'GET') {
@@ -8,7 +7,6 @@ export default async (req, res) => {
     const itemsPerPage = req.query.offset || process.env.ITEMS_PER_PAGE;
     try {
       await connectDB();
-      // Product.insertMany(productData_2)
       const displayProducts = await Product.find()
         .skip(Math.max(page - 1, 0) * itemsPerPage)
         .limit(itemsPerPage);

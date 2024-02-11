@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
 import axios from 'axios';
 
-import { Banner } from "../../containers";
+import { Banner, Navigate } from "../../containers";
 import { Card, Loading } from '../../components';
 
 const Shop = () => {
@@ -64,32 +64,12 @@ const Shop = () => {
             <div ref={scrollRef} />
             <div className="grid grid-cols-7 mx-28 mt-24" >
                 <div className="col-span-2 px-6">
-                    <div className="border-2 border-gray-200 p-3 mb-32 sticky top-28" >
+                    <div className="sticky top-28" >
                         <p className="inline-flex text-lg text-slate-700 font-semibold">
                             <span className="inline-flex items-center items-center before:border-2 before:border-lime-500 before:h-1 before:w-6 before:rounded-lg after:mx-1 after:border-2 after:border-lime-500 after:h-1 after:w-1 after:rounded-lg" />
                             Product Categories
                         </p>
-                        <ul className='space-y-6 mt-10'>
-                            <li className='text-slate-700 flex justify-between group'>
-                                All
-                                <a href="/shop">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-slate-600 group-hover:scale-110 group-hover:text-lime-500">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
-                                    </svg>
-                                </a>
-                            </li>
-                            {category.length > 0 && category.slice(0, 5).map((item, index) => (
-                                <li key={index} className={`text-slate-700 flex justify-between group`}>
-                                    {item.title}
-                                    <a href={'/shop/' + item.slug}>
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-slate-600 group-hover:scale-110 group-hover:text-lime-500">
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
-                                        </svg>
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-
+                        <Navigate category={category} />
                     </div>
                 </div>
                 <div className="col-span-5 mx-6">
@@ -104,7 +84,7 @@ const Shop = () => {
                             <Loading />
                         </div>
                         )}
-                    < div className='flex justify-center space-x-6 my-12'>
+                    {totalPage > 0 && (< div className='flex justify-center space-x-6 my-12'>
                         <div onClick={previousPageHandler} className='border-2 border-gray-200 w-10 h-10 flex justify-center items-center text-slate-500 hover:bg-lime-500 hover:text-white'>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="m18.75 4.5-7.5 7.5 7.5 7.5m-6-15L5.25 12l7.5 7.5" />
@@ -117,7 +97,7 @@ const Shop = () => {
                             </svg>
 
                         </div>
-                    </div>
+                    </div>)}
                 </div>
             </div >
 

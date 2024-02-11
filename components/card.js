@@ -16,8 +16,8 @@ const Card = ({ data }) => {
 
     return (
         <div className="group relative border-2 border-gray-100 flex flex-col w-[250px] items-center hover:shadow-lg">
-            <div className="w-[250px] h-[250px] bg-local bg-cover" style={{ backgroundImage: `url(${image})` }}>
-                <img src={image} style={{ width: '250px', height: '250px' }} alt={sequence} className={`scale-100 transition-all ${isAddedToCart && "animate-cart"}`} />
+            <div className="w-[230px] h-[230px] bg-local bg-cover" style={{ backgroundImage: `url(${image})` }}>
+                <img src={image} style={{ width: '230px', height: '230px' }} alt={sequence} className={`scale-100 transition-all ${isAddedToCart && "animate-cart"}`} />
             </div>
             <div className="flex flex-col py-3 h-28 items-center justify-center justify-around">
                 <h2 className="font-semibold text-base">{title}</h2>

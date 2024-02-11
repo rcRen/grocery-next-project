@@ -43,9 +43,6 @@ export default ({ product }) => {
                 <p className="text-4xl font-normal text-lime-500">CA${price}</p>
               </div>
             </div>
-            {/* <div className="border-b border-b-slate-200 p-6">
-              <p>{category}</p>
-            </div> */}
             <div className="flex space-x-5">
               <div className="w-2/3 flex justify-between bg-white border-2 border-gray-200 justify-contents-center">
                 <button
