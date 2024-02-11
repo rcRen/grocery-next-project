@@ -13,10 +13,6 @@ const Category = new mongoose.Schema(
     slug: {
       type: String,
     },
-    id: {
-      type: String,
-      required: true,
-    },
   },
   { timestamps: true }
 );

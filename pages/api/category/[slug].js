@@ -12,11 +12,11 @@ export default async (req, res) => {
       const category = await Category.where({ slug }).findOne();
 
       if (category) {
-        const displayProducts = await Product.find({ category: category.id })
+        const displayProducts = await Product.find({ category: category._id })
           .skip(Math.max(page - 1, 0) * itemsPerPage)
           .limit(itemsPerPage);
 
-        const count = await Product.countDocuments({ category: category.id });
+        const count = await Product.countDocuments({ category: category._id });
         res.status(200).json({
           category: category,
           totalPage: Math.round(count / itemsPerPage),

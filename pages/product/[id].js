@@ -5,7 +5,8 @@ import { useCart } from '../../contexts/cart';
 import Banner from '../../containers/banner';
 
 export default ({ product }) => {
-  const { id, image, category, sequence, brand, title, price } = product
+  console.info('11', product)
+  const { _id, image, category, sequence, brand, title, price } = product
   const [quantity, setQuantity] = useState(1);
   const { AddToCart } = useCart();
   const handleChange = (e) => {
@@ -55,7 +56,6 @@ export default ({ product }) => {
                 >
                   <span className='text-lg px-2 hover:text-lime-500'>+</span>
                 </button>
-                {/* <div className=""> */}
                 <input
                   className="text-center w-full h-full py-3 px-6 bg-transparent border-x-2 border-gray-200 text-gray-800 focus:outline-none focus:ring focus:border-blue-500"
                   type="text"
@@ -63,7 +63,6 @@ export default ({ product }) => {
                   min="1"
                   onChange={(e) => handleChange(e)}
                 />
-                {/* </div> */}
                 <button
                   type="button"
                   className="m-1 disabled:pointer-events-none disabled:bg-white disabled:opacity-25"
@@ -99,6 +98,7 @@ export async function getServerSideProps({ req, res, query }) {
   const response = await axios.get(API_PRODUCTS);
   const product = response.data.product;
 
+  console.info('!!', product)
   return {
     props: {
       product,

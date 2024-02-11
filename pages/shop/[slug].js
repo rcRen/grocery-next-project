@@ -38,6 +38,7 @@ export default () => {
     }, [])
 
     useEffect(() => {
+        console.info(slug)
         const API_CATEGORY = `/api/category/${slug}`;
         axios
             .post(API_CATEGORY, { page, })
@@ -45,6 +46,7 @@ export default () => {
                 setProducts(data.displayProducts)
                 setTotalPage(data.totalPage);
                 setProducts(data.displayProducts);
+                setLoading(false)
             })
             .catch(function (error) {
                 console.log(error);

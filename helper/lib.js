@@ -44,7 +44,7 @@ export const getQuantityOfItemInCart = (item) => {
   if (!cart) {
     return [-1, [], quantityInCart];
   } else {
-    const index = cart.findIndex((_item) => _item.id == item.id);
+    const index = cart.findIndex((_item) => _item._id == item._id);
 
     if (index < 0) {
       return [index, cart, quantityInCart];
@@ -54,6 +54,7 @@ export const getQuantityOfItemInCart = (item) => {
 };
 
 export const addToCart = (item, quantity) => {
+  console.info('000',item)
   const [index, cart, quantityInCart] = getQuantityOfItemInCart(item);
 
   if (quantityInCart) {

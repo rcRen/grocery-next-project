@@ -2,7 +2,8 @@ import { useCart } from "../contexts/cart";
 
 const SideCart = ({ setOpenSlide }) => {
     const { products, subTotal } = useCart();
-    return (
+    console.info('222',products)
+    return products && (
         <div className="bg-white h-full w-full grid grid-rows-12 p-12">
             <div className="border-b-2 border-slate-100 w-full flex items-center justify-between">
                 <span className="text-xl ">Cart</span>
@@ -13,7 +14,7 @@ const SideCart = ({ setOpenSlide }) => {
                 </button>
             </div>
             <div className="row-span-8 border-b border-slate-200 overflow-scroll py-3">
-                {products.map((product, index) => (
+                {products?.map((product, index) => (
                     <div key={index} className="flex border-b border-slate-200 py-6">
                         <div className="p-2">
                             <img src={product.image} alt={product.sequence} className="h-16 w-16 object-cover object-center" />

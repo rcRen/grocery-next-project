@@ -9,8 +9,8 @@ const Props = {
   subTotal: 0,
   tax: 0,
   total: 0,
-  AddToCart: () => {},
-  RemoveFromCart: () => {},
+  AddToCart: () => { },
+  RemoveFromCart: () => { },
 };
 
 export const CartContext = createContext(Props);
@@ -26,8 +26,8 @@ export const CartProvider = (props) => {
 
   const total = currency(currency(subTotal).value + currency(tax).value).value;
 
-  const AddToCart = (item,quantity) => {
-    addToCart(item,quantity);
+  const AddToCart = (item, quantity) => {
+    addToCart(item, quantity);
     setProducts(storage.get('cart'));
   };
 

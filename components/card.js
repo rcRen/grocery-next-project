@@ -4,7 +4,7 @@ import { useCart } from '../contexts/cart';
 
 const Card = ({ data }) => {
     const router = useRouter();
-    const { id, image, title, price, sequence } = data;
+    const { _id, image, title, price, sequence, salePrice } = data;
     const { AddToCart, RemoveFromCart, products } = useCart();
     const [isAddedToCart, setIsAddToCart] = useState(false)
 
@@ -15,13 +15,16 @@ const Card = ({ data }) => {
     };
 
     return (
-        <div className="group relative border-2 border-gray-100 flex flex-col w-[250px] p-[15px] items-center hover:shadow-lg">
-            <div className="w-[200px] h-[200px] bg-local bg-cover" style={{ backgroundImage: `url(${image})` }}>
-                <img src={image} style={{ width: '200px', height: '200px' }} alt={sequence} className={`scale-100 transition-all ${isAddedToCart && "animate-cart"}`} />
+        <div className="group relative border-2 border-gray-100 flex flex-col w-[250px] items-center hover:shadow-lg">
+            <div className="w-[250px] h-[250px] bg-local bg-cover" style={{ backgroundImage: `url(${image})` }}>
+                <img src={image} style={{ width: '250px', height: '250px' }} alt={sequence} className={`scale-100 transition-all ${isAddedToCart && "animate-cart"}`} />
             </div>
-            <div className="flex flex-col p-3 h-28 items-center justify-center justify-between">
+            <div className="flex flex-col py-3 h-28 items-center justify-center justify-around">
                 <h2 className="font-semibold text-base">{title}</h2>
-                <p className="text-xl text-lime-500">${price}</p>
+                <div className="flex space-x-3">
+                    <p className="text-xl text-lime-500">${salePrice > 0 ? salePrice : price}</p>
+                    {salePrice > 0 && <p className="text-xl text-lime-500/[0.7] line-through">${price}</p>}
+                </div>
             </div>
             <div className="absolute flex space-x-2 invisible top-48 group-hover:visible group-hover:top-36 cursor-pointer transition-all ease-out duration-900 opacity-0 group-hover:opacity-100">
                 {/* cart icon */}
@@ -36,7 +39,7 @@ const Card = ({ data }) => {
                 <div onClick={() => {
                     router.push({
                         pathname: '/product/[id]',
-                        query: { id: id },
+                        query: { id: _id },
                     })
                 }}
                     className="p-3 bg-white rounded-full hover:bg-lime-500 ">

@@ -21,10 +21,9 @@ const Product = new mongoose.Schema(
     },
     salePrice: {
       type: Number,
-      min: 0,
       required: true,
+      min: 0,
     },
-    brand: String,
     unit: {
       type: Number,
       required: true,
@@ -37,17 +36,10 @@ const Product = new mongoose.Schema(
       type: String,
       required: true,
     },
-    id: {
-      type: String,
-      required: true,
-    },
     category: {
-      type: String,
-      required: true,
+      type: mongoose.Types.ObjectId,
+      ref: "Category",
     },
-    region: String,
-    type: String,
-    merchant: String,
   },
   { timestamps: true }
 );

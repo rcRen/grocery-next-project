@@ -14,7 +14,6 @@ if (!cached) {
 async function connectDB() {
   if (cached.conn) {
     console.info('connection already connected');
-
     return;
   }
 
@@ -34,6 +33,8 @@ async function connectDB() {
         return new Promise(null);
       });
   }
+
+  
 
   cached.conn = await cached.promise;
 }
