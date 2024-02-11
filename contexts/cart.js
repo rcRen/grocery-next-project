@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from 'react';
 import currency from 'currency.js';
 import storage from '../helper/storage';
-import { calcSubTotal, calcTotalTax, addToCart, removeFromCart, clearCart } from '../helper/lib';
+import { calcSubTotal, calcTotalTax, addToCart, removeFromCart, removeAllFromCart, clearCart } from '../helper/lib';
 
 const Props = {
   products: [],
@@ -36,6 +36,11 @@ export const CartProvider = (props) => {
 
     setProducts(storage.get('cart'));
   };
+  const RemoveAllFromCart = (item) => {
+    removeAllFromCart(item);
+
+    setProducts(storage.get('cart'));
+  };
 
   const ClearCart = () => {
     clearCart();
@@ -50,6 +55,7 @@ export const CartProvider = (props) => {
         total,
         AddToCart,
         RemoveFromCart,
+        RemoveAllFromCart,
         ClearCart,
       }}
     >

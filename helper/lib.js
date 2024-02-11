@@ -54,7 +54,7 @@ export const getQuantityOfItemInCart = (item) => {
 };
 
 export const addToCart = (item, quantity) => {
-  console.info('000',item)
+  console.info('000', item)
   const [index, cart, quantityInCart] = getQuantityOfItemInCart(item);
 
   if (quantityInCart) {
@@ -68,13 +68,19 @@ export const addToCart = (item, quantity) => {
 export const removeFromCart = (item) => {
   let [index, cart, quantityInCart] = getQuantityOfItemInCart(item);
   if (quantityInCart < 2) {
-    cart = cart.filter((_item) => _item.id != item.id);
+    cart = cart.filter((_item) => _item._id != item._id);
   } else {
     cart[index]['quantity'] -= 1;
   }
 
   storage.set('cart', cart);
 };
+
+export const removeAllFromCart = (item) => {
+  let [index, cart, quantityInCart] = getQuantityOfItemInCart(item);
+  cart = cart.filter((_item) => _item._id != item._id);
+  storage.set('cart', cart);
+}
 
 export const clearCart = () => {
   storage.clear('cart');

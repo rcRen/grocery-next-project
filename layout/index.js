@@ -5,9 +5,12 @@ import Header from "./header"
 const Layout = ({ children }) => {
     return (
         <>
+            <Head>
+                <link rel="icon" href="/assets/icons/mango-fruit-icon.svg" />
+            </Head>
             <div className="bg-white relative">
                 <Header />
-                <main className="mt-28 ">
+                <main className="my-28 ">
                     <div >{children}</div>
                 </main>
                 <Footer />

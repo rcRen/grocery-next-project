@@ -5,7 +5,7 @@ import { useCart } from '../contexts/cart';
 const cartItem = ({ data }) => {
   const { id, image, title, price, quantity } = data;
 
-  const { AddToCart, RemoveFromCart } = useCart();
+  const { AddToCart, RemoveFromCart, RemoveAllFromCart } = useCart();
 
   const addToCartHandler = () => AddToCart(data);
 
@@ -13,7 +13,12 @@ const cartItem = ({ data }) => {
 
   return (
     <>
-      <li key={id} className="flex py-6">
+      <li className=" relative flex py-6">
+        <button onClick={() => RemoveAllFromCart(data)} className="absolute top-3 -left-2 cursor-pointer hover:scale-105 hover:text-red-500">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          </svg>
+        </button>
         <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
           <img src={image} alt="" className="h-full w-full object-cover object-center" />
         </div>
@@ -30,7 +35,6 @@ const cartItem = ({ data }) => {
           <div className="flex flex-1 items-end justify-between text-sm">
             <div className="flex items-center space-x-3">
               <p className="text-gray-500">Qty</p>
-
               <button
                 onClick={removeFromCartHandler}
                 className="inline-flex items-center p-1 text-sm font-medium text-gray-500 bg-white rounded-full border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
@@ -82,7 +86,7 @@ const cartItem = ({ data }) => {
                 </svg>
               </button>
             </div>
-{/* 
+            {/* 
             <div className="flex">
               <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500">
                 Remove
