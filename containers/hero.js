@@ -6,7 +6,7 @@ const Hero = () => {
                 <h1 className="font-extrabold text-6xl tracking-widest"> OnlyFruit</h1>
                 <p className="font-ligh text-xl text-gray-500 mt-10"> Here, we only have fruits.</p>
                 <button className="mt-8 bg-lime-400 text-start w-fit p-3 text-white cursor-pointer animate-bounce hover:animate-none">
-                    SHOP NOW
+                    <a href="/shop">SHOP NOW</a>
                 </button>
             </div>
         </div >
